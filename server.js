@@ -7,7 +7,7 @@ import userRoutes from './routes/userRoutes.js'
 
 
 const app = express()
-const port = process.env.PORT
+// const port = process.env.PORT
 const DATABASE_URL = process.env.DATABASE_URL
 
 app.use(cors())
@@ -19,4 +19,4 @@ app.use(express.json())
 app.use('/api/user',userRoutes)
 
 
-app.listen(port,()=>{console.log(`Listening on http://localhots:${port}`)})
+// app.listen(port,()=>{console.log(`Listening on http://localhots:${port}`)})
