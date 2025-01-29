@@ -3,7 +3,7 @@ dotenv.config()
 import express from 'express'
 import cors from 'cors'
 import connectDB from './config/connectdb.js'
-import userRoutes from './routes/userRoutes.js'
+import UserRoutes from './routes/userROuter.js'
 
 
 const app = express()
@@ -16,7 +16,7 @@ connectDB(DATABASE_URL)
 
 app.use(express.json())
 
-app.use('/api/user',userRoutes)
+app.use('/api/user',UserRoutes)
 
 
 // app.listen(port,()=>{console.log(`Listening on http://localhots:${port}`)})
