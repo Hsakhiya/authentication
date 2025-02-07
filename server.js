@@ -18,5 +18,9 @@ app.use(express.json())
 
 app.use('/api/user',UserRoutes)
 
+<<<<<<< HEAD
 
 app.listen(port,()=>{console.log(`Listening on http://localhots:${port}`)})
+=======
+app.listen(port,()=>{console.log(`Listening on http://localhots:${port}`)})
+>>>>>>> 3d04775d753123973a8fbddb0de00bfa727dc7b7
