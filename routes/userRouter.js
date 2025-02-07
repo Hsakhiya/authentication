@@ -1,6 +1,6 @@
 import express from 'express'
 const router = express.Router()
-import UserController from '../controllers/usercontroller.js'
+import UserController from '../controllers/UserController.js'
 import GetUser from '../controllers/getUser.js'
 
 
