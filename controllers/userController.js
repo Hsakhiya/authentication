@@ -12,9 +12,6 @@ class UserController {
             try {
                 const salt = await bcrypt.genSalt(15)
                 const hashPassword = await bcrypt.hash(password,salt)
-                const comapre = bcrypt.compareSync(password, hashPassword)
-                console.log(comapre)
-
             if (name && email && password) {
                 const doc = new UserModel({
                     name: name,
@@ -31,6 +28,30 @@ class UserController {
             }
         }
     }
+
+    static userLogin = async(req,res) =>{
+        try {
+            const {email,password} = req.body
+            if (email && password) {
+                const user = await UserModel.findOne({email:email})
+                if (user != null) {
+                    const isMatch = await bcrypt.compare(password,user.password)
+                    if (email === user.email && isMatch) {
+                        res.status(200).json(user)
+                    } else {
+                        res.status(403).json({message: "Invalid Password or Email"})
+                    }
+                } else {
+                    res.status(403).json({message:"User not found"})
+                }
+            } else {
+                res.status(403).json({message: "All Fields Required"})
+            }
+        } catch (error) {
+            res.status(500).json({message: error.message})
+        }
+    }
+    
 }
 
 
